@@ -1,4 +1,7 @@
 
+using ImaginaryFriendsServiceTicketSystem.Server.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace ImaginaryFriendsServiceTicketSystem.Server
 {
     public class Program
@@ -8,6 +11,11 @@ namespace ImaginaryFriendsServiceTicketSystem.Server
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            builder.Services.AddDbContext<TicketContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("dbCon"));
+            });
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
