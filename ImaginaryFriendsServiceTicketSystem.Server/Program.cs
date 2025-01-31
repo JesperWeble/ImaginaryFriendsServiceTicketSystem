@@ -1,3 +1,5 @@
+using ImaginaryFriendsServiceTicketSystem.Server.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ImaginaryFriendsServiceTicketSystem.Server
 {
@@ -8,6 +10,11 @@ namespace ImaginaryFriendsServiceTicketSystem.Server
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            var conStr = builder.Configuration.GetConnectionString("dbCon");
+            builder.Services.AddDbContext<TicketContext>(options =>
+            {
+                options.UseMySql(conStr, ServerVersion.AutoDetect(conStr));
+            });
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -35,7 +42,13 @@ namespace ImaginaryFriendsServiceTicketSystem.Server
 
             app.MapFallbackToFile("/index.html");
 
+
+            // Adds default Level, Status and Sla to DB, with some extra mockdata.
+            //PopulateDB.Populate(conStr);
+
             app.Run();
+
+          
         }
     }
 }
