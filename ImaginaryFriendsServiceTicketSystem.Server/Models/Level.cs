@@ -1,8 +1,13 @@
-﻿namespace ImaginaryFriendsServiceTicketSystem.Server.Models
+﻿using System.Text.Json.Serialization;
+
+namespace ImaginaryFriendsServiceTicketSystem.Server.Models
 {
     public class Level
     {
-        public string id { get; set; }
-        public string name { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        [JsonIgnore]
+        public ICollection<Ticket> Tickets { get; set; }
     }
 }

@@ -1,17 +1,33 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace ImaginaryFriendsServiceTicketSystem.Server.Models
 {
     public class Ticket
     {
         [Key]
-        public int id { get; set; }
-        public string title { get; set; }
-        public string description { get; set; }
-        public int userId { get; set; }
-        public int customerId { get; set; }
+        public int Id { get; set; }
+
+        public string Title { get; set; }
+
+        public string Description { get; set; }
+
+        public int UserId { get; set; }
+        [JsonIgnore]
+        public User? User { get; set; }
+
+        public int CustomerId { get; set; }
+        [JsonIgnore]
+        public Customer? Customer { get; set; }
+
         public DateTime UpdatedAt { get; set; }
-        public int statusId { get; set; }
-        public int levelId { get; set; }
+
+        public int StatusId { get; set; }
+        [JsonIgnore]
+        public Status? Status { get; set; }
+
+        public int LevelId { get; set; }
+        [JsonIgnore]
+        public Level? Level { get; set; }
     }
 }

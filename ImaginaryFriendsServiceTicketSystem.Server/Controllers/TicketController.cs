@@ -7,52 +7,59 @@ namespace ImaginaryFriendsServiceTicketSystem.Server.Controllers
     [Route("/api/[controller]")]
     public class TicketController : ControllerBase
     {
-        private static readonly Ticket[] tickets = new[]
-        {
-            new Ticket()
-            {
-                id = 1,
-                title = "Ticket 1",
-                description = "Description 1",
-                userId = 1,
-                customerId = 1,
-                UpdatedAt = DateTime.Now,
-                statusId = 1,
-                levelId = 1
-            },
-            new Ticket()
-            {
-                id = 2,
-                title = "Ticket 2",
-                description = "Description 2",
-                userId = 2,
-                customerId = 2,
-                UpdatedAt = DateTime.Now,
-                statusId = 2,
-                levelId = 2
-            },
-            new Ticket()
-            {   id = 3,
-                title = "Ticket 3",
-                description = "Description 3",
-                userId = 3,
-                customerId = 3,
-                UpdatedAt = DateTime.Now,
-                statusId = 3,
-                levelId = 3 }
-        };
+        private readonly TicketContext _ticketContext;
+        private static readonly List<Ticket> tickets = new();
 
         private readonly ILogger<TicketController> _logger;
 
-        public TicketController(ILogger<TicketController> logger)
+        public TicketController(TicketContext ticketContext, ILogger<TicketController> logger)
         {
+            _ticketContext = ticketContext;
             _logger = logger;
         }
 
         [HttpGet]
-        public IEnumerable<Ticket> Get()
+        [Route("GetAllTickets")]
+        public List<Ticket> GetAllTickets()
         {
-            return tickets;
+            return _ticketContext.Tickets.ToList();
+        }
+
+        [HttpGet]
+        [Route("GetTicketById")]
+        public Ticket GetTicketById(int id)
+        {
+            return _ticketContext.Tickets.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        [HttpPost]
+        [Route("AddTicket")]
+        public string AddTicket(Ticket ticket)
+        {
+            string response = string.Empty;
+            _ticketContext.Tickets.Add(ticket);
+            _ticketContext.SaveChanges();
+            return "User added successfully";
+        }
+
+        [HttpPut]
+        [Route("UpdateTicket")]
+        public string UpdateTicket(Ticket ticket)
+        {
+            _ticketContext.Entry(ticket).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _ticketContext.SaveChanges();
+
+            return "Ticket Updated";
+        }
+
+        [HttpDelete]
+        [Route("DeleteTicket")]
+        public string DeleteTicket(Ticket ticket)
+        {
+            _ticketContext.Remove(ticket);
+            _ticketContext.SaveChanges();
+
+            return "Ticket Deleted";
         }
     }
 }

@@ -1,4 +1,3 @@
-
 using ImaginaryFriendsServiceTicketSystem.Server.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,10 +10,10 @@ namespace ImaginaryFriendsServiceTicketSystem.Server
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            var conStr = builder.Configuration.GetConnectionString("dbCon");
             builder.Services.AddDbContext<TicketContext>(options =>
             {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("dbCon"));
+                options.UseMySql(conStr, ServerVersion.AutoDetect(conStr));
             });
 
             builder.Services.AddControllers();
@@ -43,7 +42,13 @@ namespace ImaginaryFriendsServiceTicketSystem.Server
 
             app.MapFallbackToFile("/index.html");
 
+
+            // Adds default Level, Status and Sla to DB, with some extra mockdata.
+            //PopulateDB.Populate(conStr);
+
             app.Run();
+
+          
         }
     }
 }

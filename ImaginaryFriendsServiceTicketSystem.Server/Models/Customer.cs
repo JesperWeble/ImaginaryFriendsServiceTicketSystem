@@ -1,10 +1,17 @@
-﻿namespace ImaginaryFriendsServiceTicketSystem.Server.Models
+﻿using System.Text.Json.Serialization;
+
+namespace ImaginaryFriendsServiceTicketSystem.Server.Models
 {
     public class Customer
     {
-        public string id { get; set; }
-        public string fName { get; set; }
-        public string lName { get; set; }
-        public string slaId { get; set; }
+        public int Id { get; set; }
+        public string FName { get; set; }
+        public string LName { get; set; }
+        public int SlaId { get; set; }
+        [JsonIgnore]
+        public Sla Sla { get; set; }
+
+        [JsonIgnore]
+        public ICollection<Ticket> Tickets { get; set; }
     }
 }
