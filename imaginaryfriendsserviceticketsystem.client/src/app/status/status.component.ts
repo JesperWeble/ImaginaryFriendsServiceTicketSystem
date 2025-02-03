@@ -1,21 +1,22 @@
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Status } from '../status'
+import { Ticket } from '../ticket'
+import { RouterModule } from '@angular/router'
 import { TicketComponent } from '../ticket/ticket.component';
-import { StatusService } from '../status.service'
 
 @Component({
-    selector: 'app-status',
-    standalone: true,
-    imports: [CommonModule, TicketComponent],
-    templateUrl: './status.component.html',
-    styleUrls: ['./status.component.css']
-  })
+  selector: 'app-status',
+  standalone: true,
+  imports: [CommonModule, RouterModule, TicketComponent],
+  templateUrl: './status.component.html',
+  styleUrls: ['./status.component.css']
+})
 export class StatusComponent
 {
-  statusService: StatusService = inject(StatusService);
+  @Input() status!: Status;
+  @Input() ticketList!: Ticket[];
 
-  constructor() {
-
-  }
   
+
 }
