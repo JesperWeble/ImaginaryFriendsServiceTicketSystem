@@ -4,7 +4,7 @@ export interface Ticket {
   description: string;
   customerId: number;
   userId: number;
-  updated_at: Date;
+  updatedAt: Date;
   statusId: number;
   levelId: number;
 }
