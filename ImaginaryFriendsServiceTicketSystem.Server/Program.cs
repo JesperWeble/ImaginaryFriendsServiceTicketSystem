@@ -16,6 +16,17 @@ namespace ImaginaryFriendsServiceTicketSystem.Server
                 options.UseMySql(conStr, ServerVersion.AutoDetect(conStr));
             });
 
+            // Add CORS policy to the services collection
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin", policy =>
+                {
+                    policy.WithOrigins("https://localhost:59639")  // Allowed origin
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+            });
+
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -37,6 +48,7 @@ namespace ImaginaryFriendsServiceTicketSystem.Server
 
             app.UseAuthorization();
 
+            app.UseCors("AllowSpecificOrigin");  // Apply the policy
 
             app.MapControllers();
 
@@ -48,7 +60,7 @@ namespace ImaginaryFriendsServiceTicketSystem.Server
 
             app.Run();
 
-          
+            
         }
     }
 }
