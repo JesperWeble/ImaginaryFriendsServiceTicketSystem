@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { StatusComponent } from './status/status.component'
+import { HomeComponent } from './home/home.component'
 
 
 const routeConfig: Routes = [
   {
     path: '',
-    component: StatusComponent,
-    title: 'Test'
+    component: HomeComponent,
+    title: 'Home Page'
   }];
 
 export default routeConfig;

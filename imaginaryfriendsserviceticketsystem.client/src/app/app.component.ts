@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StatusComponent } from './status/status.component'
+import { HomeComponent } from './home/home.component'
 import { RouterModule, Routes } from '@angular/router';
 
 @Component({
@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [StatusComponent, RouterModule]
+  imports: [HomeComponent, RouterModule]
 })
 export class AppComponent implements OnInit {
   ngOnInit()
