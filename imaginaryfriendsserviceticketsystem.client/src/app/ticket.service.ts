@@ -5,7 +5,7 @@ import { Ticket } from './ticket';
   providedIn: 'root'
 })
 export class TicketService {
-  url = 'http://localhost:7272/api/ticket';
+  url = 'https://localhost:7272/api/ticket';
   constructor() { }
 
   async getAllTickets(): Promise<Ticket[]> {
@@ -13,8 +13,8 @@ export class TicketService {
     return await response.json() ?? [];
   }
 
-  async getTicket(id: number): Promise<Ticket> {
-    const response = await fetch(`${this.url}/GetTicketById/${id}`);
+  async getTicketById(id: number): Promise<Ticket> {
+    const response = await fetch(`${this.url}/getticketbyid?id=${id}`);
     return await response.json() ?? [];
   }
 
