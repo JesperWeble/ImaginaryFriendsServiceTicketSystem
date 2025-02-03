@@ -1,18 +1,18 @@
-<p>
-  details works!
-</p>
-
-<article>
+<article *ngIf="ticket; else noObjectTemplate">
   <section>
     <h2>{{ticket?.title}}</h2>
     <p>{{ticket?.description}}</p>
   </section>
   <section>
-    <h2>{{ticket?.title}}</h2>
-    <p>{{ticket?.description}}</p>
+    <p>{{ticket?.userId}}</p>
+    <p>{{ticket?.customerId}}</p>
   </section>
   <section>
-    <h2>{{ticket?.title}}</h2>
-    <p>{{ticket?.description}}</p>
+    <h2>{{ticket?.levelId}}</h2>
+    <p>{{ticket?.updatedAt}}</p>
   </section>
 </article>
+
+<ng-template #noObjectTemplate>
+  <p>No object available.</p>
+</ng-template>
