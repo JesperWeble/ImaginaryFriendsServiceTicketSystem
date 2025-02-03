@@ -27,9 +27,9 @@ namespace ImaginaryFriendsServiceTicketSystem.Server.Controllers
 
         [HttpGet]
         [Route("GetTicketById")]
-        public Ticket GetTicketById(int id)
+        public Ticket? GetTicketById(int id)
         {
-            return _ticketContext.Tickets.Where(x => x.Id == id).FirstOrDefault();
+            return _ticketContext.Tickets.Find(id);
         }
 
         [HttpPost]
@@ -54,8 +54,13 @@ namespace ImaginaryFriendsServiceTicketSystem.Server.Controllers
 
         [HttpDelete]
         [Route("DeleteTicket")]
-        public string DeleteTicket(Ticket ticket)
+        public string DeleteTicket(int  id)
         {
+            var ticket = _ticketContext.Tickets.Find(id);
+            if (ticket == null)
+            {
+                return "Ticket not found";
+            }
             _ticketContext.Remove(ticket);
             _ticketContext.SaveChanges();
 
