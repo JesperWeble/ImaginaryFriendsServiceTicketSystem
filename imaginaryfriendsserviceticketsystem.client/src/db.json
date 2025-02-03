@@ -1,0 +1,16 @@
+{
+  "statuses": [
+    {
+      "id": 0,
+      "name": "To Do"
+    },
+    {
+      "id": 1,
+      "name": "Doing"
+    },
+    {
+      "id": 2,
+      "name": "Done"
+    }
+  ]
+}

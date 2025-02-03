@@ -1,38 +1,19 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
+import { HomeComponent } from './home/home.component'
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
+  standalone: true,
   selector: 'app-root',
   templateUrl: './app.component.html',
-  standalone: false,
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  imports: [HomeComponent, RouterModule]
 })
 export class AppComponent implements OnInit {
-  public forecasts: WeatherForecast[] = [];
+  ngOnInit()
+  {
 
-  constructor(private http: HttpClient) {}
-
-  ngOnInit() {
-    this.getForecasts();
   }
 
-  getForecasts() {
-    this.http.get<WeatherForecast[]>('/weatherforecast').subscribe(
-      (result) => {
-        this.forecasts = result;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
-
-  title = 'imaginaryfriendsserviceticketsystem.client';
+  title = 'Imaginary Friends Service';
 }
