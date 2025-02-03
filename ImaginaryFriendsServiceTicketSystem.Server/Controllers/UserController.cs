@@ -52,9 +52,14 @@ namespace ImaginaryFriendsServiceTicketSystem.Server.Controllers
 
         [HttpDelete]
         [Route("DeleteUser")]
-        public string DeleteUser(User user)
+        public string DeleteUser(int id)
         {
-            _context.Remove(user);
+            var User = _context.Users.Find(id);
+            if (User == null)
+            {
+                return "User not found";
+            }
+            _context.Remove(User);
             _context.SaveChanges();
             return "User Deleted";
         }

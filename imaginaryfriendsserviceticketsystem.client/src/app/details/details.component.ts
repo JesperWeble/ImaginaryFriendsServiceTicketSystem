@@ -1,18 +1,14 @@
-import { Component, inject, Input} from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { Ticket } from '../ticket';
 import { TicketService } from '../ticket.service';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './details.component.html',
-  template: `
-    <p>
-      details works!
-    </p>
-  `,
   styleUrl: './details.component.css'
 })
 export class DetailsComponent {
