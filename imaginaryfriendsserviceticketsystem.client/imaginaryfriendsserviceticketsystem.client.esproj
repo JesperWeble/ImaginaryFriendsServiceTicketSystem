@@ -7,4 +7,9 @@
     <!-- Folder where production build objects will be placed -->
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\imaginaryfriendsserviceticketsystem.client\browser\</BuildOutputFolder>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\app\NewFolder\" />
+    <Folder Include="src\app\ticket\" />
+    <Folder Include="src\assets\" />
+  </ItemGroup>
 </Project>
