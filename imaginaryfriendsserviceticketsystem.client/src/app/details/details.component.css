@@ -3,13 +3,22 @@ article {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 80%;
+      width: 100%;
+      max-width: 720px;
+      padding: 16px;
       margin: 0 auto;
       font-weight: bold;
-
+      border: 1px solid grey;
+      border-radius: 5px;
+      background-color: #033e7d;
 }
 
-article section {
+article section section {
       display: flex;
       flex-direction: row;
+}
+
+
+.card-header{
+          border-bottom: 1px solid grey;
 }

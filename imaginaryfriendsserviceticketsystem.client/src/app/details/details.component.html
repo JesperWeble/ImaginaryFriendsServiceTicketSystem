@@ -1,24 +1,28 @@
 <article *ngIf="ticket; else noObjectTemplate" class="content">
-  <h2>{{ticket.title}}</h2>
-  <section>
-    <p>Description:</p>
-    <p>{{ticket.description}}</p>
+  <section class="card-header">
+    <h2>{{ticket.title}}</h2>
   </section>
   <section>
-    <p>User Name:</p>
-    <p>{{user?.name}}</p>
-  </section>
-  <section>
-    <p>Customer Name:</p>
-    <p>{{customer?.fName}} {{customer?.lName}}</p>
-  </section>
-  <section>
-    <p>Level Name:</p>
-    <p>{{level?.name}}</p>
-  </section>
-  <section>
-    <p>Updated At:</p>
-    <p>{{ticket.updatedAt}}</p>
+    <section>
+      <p>Description:</p>
+      <p>{{ticket.description}}</p>
+    </section>
+    <section>
+      <p>User Name:</p>
+      <p>{{user?.name}}</p>
+    </section>
+    <section>
+      <p>Customer Name:</p>
+      <p>{{customer?.fName}} {{customer?.lName}}</p>
+    </section>
+    <section>
+      <p>Level Name:</p>
+      <p>{{level?.name}}</p>
+    </section>
+    <section>
+      <p>Updated At:</p>
+      <p>{{ticket.updatedAt}}</p>
+    </section>
   </section>
 </article>
 
