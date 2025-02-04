@@ -74,7 +74,7 @@ namespace ImaginaryFriendsServiceTicketSystem.Server.Controllers
                 User = new UserDto
                 {
                     Id = ticket.User.Id,
-                    Username = ticket.User.Name
+                    Name = ticket.User.Name
                 },
                 Level = new LevelDto
                 {

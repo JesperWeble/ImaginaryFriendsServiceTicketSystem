@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Ticket } from './ticket';
+import { FullTicketInfoDto } from './FullTicketInfoDto';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,11 @@ export class TicketService {
 
   async getTicketById(id: number): Promise<Ticket> {
     const response = await fetch(`${this.url}/getticketbyid?id=${id}`);
+    return await response.json() ?? [];
+  }
+
+  async getFullTicketById(id: number): Promise<FullTicketInfoDto> {
+    const response = await fetch(`${this.url}/getfullticketbyid?id=${id}`);
     return await response.json() ?? [];
   }
 

@@ -1,0 +1,15 @@
+article {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      margin: 0 auto;
+      font-weight: bold;
+
+}
+
+article section {
+      display: flex;
+      flex-direction: row;
+}
