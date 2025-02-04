@@ -5,7 +5,7 @@ import { Ticket } from './ticket';
   providedIn: 'root'
 })
 export class TicketService {
-  url = 'https://localhost:7272/api/';
+  url = 'https://localhost:7272/api/ticket';
   constructor() { }
 
   async getAllTickets(): Promise<Ticket[]> {
