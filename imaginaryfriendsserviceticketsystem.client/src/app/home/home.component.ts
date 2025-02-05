@@ -4,7 +4,6 @@ import { Status } from '../status';
 import { StatusComponent } from '../status/status.component';
 import { StatusService } from '../status.service';
 import { Ticket } from '../ticket';
-import { TicketComponent } from '../ticket/ticket.component';
 import { TicketService } from '../ticket.service';
 
 @Component({
