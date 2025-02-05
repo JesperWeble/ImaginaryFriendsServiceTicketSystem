@@ -10,7 +10,7 @@ import { TicketService } from '../ticket.service';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, StatusComponent, TicketComponent],
+  imports: [CommonModule, StatusComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
