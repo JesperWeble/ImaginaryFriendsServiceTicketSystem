@@ -1,18 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StatusComponent } from '../status/status.component';
+import { Ticket } from '../ticket'
+import { RouterModule } from '@angular/router'
 
 @Component({
   selector: 'app-ticket',
   standalone: true,
-  imports: [CommonModule, StatusComponent],
-  template: `
-    <p>
-      ticket works!
-    </p>
-  `,
+  imports: [CommonModule, RouterModule],
+  templateUrl: 'ticket.component.html',
   styleUrl: './ticket.component.css'
 })
-export class TicketComponent {
+export class TicketComponent
+{
+  @Input() ticket!: Ticket;
 
 }

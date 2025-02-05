@@ -9,11 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
   styleUrl: './app.component.css',
   imports: [HomeComponent, RouterModule]
 })
-export class AppComponent implements OnInit {
-  ngOnInit()
-  {
-
-  }
-
+export class AppComponent
+{
   title = 'Imaginary Friends Service';
 }

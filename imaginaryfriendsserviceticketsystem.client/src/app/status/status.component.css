@@ -1,19 +1,16 @@
 /* Put these styles in: src/app/housing-location/housing-location.component.css */
 
-.listing
-{
-    display: inline-block;
-    background: var(--accent-color);
-    border-radius: 30px;
-    padding-bottom: 30px;
-    margin: 10px;
-    height: 80vh;
-    width: 350px;
-
-  
+.listing {
+  display: inline-block;
+  background: var(--accent-color);
+  border-radius: 30px;
+  padding-bottom: 30px;
+  margin: 10px;
+  height: 80vh;
+  width: 350px;
 }
-.listing-heading
-{
-    color: var(--primary-color);
-    padding: 10px 20px 0 20px;
+
+.listing-heading {
+  color: var(--primary-color);
+  padding: 10px 20px 0 20px;
 }
