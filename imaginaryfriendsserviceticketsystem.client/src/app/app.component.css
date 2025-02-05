@@ -4,6 +4,7 @@
 }
 
 header {
+  background-color: var(--background);
   display: flex;
   height: 60px;
   padding: var(--content-padding);
@@ -22,7 +23,16 @@ header {
 
 .content
 {
-  margin-top: 60px;
-  height: 60px;
+  margin-top: 80px;
   padding: var(--content-padding);
+}
+
+header nav a {
+  color: var(--link-color);
+  text-decoration: none;
+  padding: 0 15px;
+}
+
+header nav a:hover {
+  text-decoration: underline;
 }
