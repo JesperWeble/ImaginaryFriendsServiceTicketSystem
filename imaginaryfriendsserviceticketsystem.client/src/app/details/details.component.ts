@@ -2,7 +2,7 @@ import { Component, inject, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TicketService } from '../ticket.service';
-import { CustomerDto, FullTicketInfoDto, LevelDto, SlaDto, UserDto } from '../FullTicketInfoDto';
+import { CustomerDto, FullTicketInfoDto, LevelDto, SlaDto, UserDto } from '../fullticketinfodto';
 
 @Component({
   selector: 'app-details',

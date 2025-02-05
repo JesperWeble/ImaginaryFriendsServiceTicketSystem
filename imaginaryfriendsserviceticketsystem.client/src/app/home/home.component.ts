@@ -20,6 +20,8 @@ export class HomeComponent
   statusService: StatusService = inject(StatusService);
   ticketList: Ticket[] = [];
   ticketService: TicketService = inject(TicketService);
+  ticketsByStatus: { [key: number]: Ticket[] } = {};
+
   constructor()
   {
     this.statusService.getAllStatuses().then((statusList: Status[]) => {
@@ -27,6 +29,17 @@ export class HomeComponent
     })
     this.ticketService.getAllTickets().then((ticketList:Ticket[]) => {
       this.ticketList = ticketList;
+      this.divideTicketsByStatus();
     })
+  }
+
+  divideTicketsByStatus() {
+    this.ticketsByStatus = this.ticketList.reduce((acc, ticket) => {
+      if (!acc[ticket.statusId]) {
+        acc[ticket.statusId] = [];
+      }
+      acc[ticket.statusId].push(ticket);
+      return acc;
+    }, {} as { [key: number]: Ticket[] });
   }
 }

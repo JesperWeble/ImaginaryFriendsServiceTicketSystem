@@ -93,11 +93,25 @@ namespace ImaginaryFriendsServiceTicketSystem.Server.Controllers
             return Ok(ticketDto);
         }
 
+        [HttpPut]
+        [Route("EscalateTicket")]
+        public string EscalateTicket(int id)
+        {
+            var ticket = _ticketContext.Tickets.Find(id);
+            if (ticket == null) return "No Ticket Found";
+            if (ticket?.LevelId < _ticketContext.Levels?.Count())
+            {
+                ticket.LevelId++;
+                _ticketContext.SaveChanges();
+                return "User added successfully";
+            }
+            return "Escalation Failed";
+        }
+
         [HttpPost]
         [Route("AddTicket")]
         public string AddTicket(Ticket ticket)
         {
-            string response = string.Empty;
             _ticketContext.Tickets.Add(ticket);
             _ticketContext.SaveChanges();
             return "User added successfully";

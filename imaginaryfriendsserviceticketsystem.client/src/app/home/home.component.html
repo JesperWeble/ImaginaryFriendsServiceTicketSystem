@@ -1,4 +1,3 @@
 <section class="statuses">
-  <app-status *ngFor="let status of statusList" [status] = "status" [ticketList]="ticketList"></app-status>
-  <!--<app-ticket *ngFor="let ticket of ticketList" [ticket] = "ticket"></app-ticket> -->
+  <app-status *ngFor="let status of statusList" [status] = "status" [ticketList]="ticketsByStatus[status.id]"></app-status>
 </section>
