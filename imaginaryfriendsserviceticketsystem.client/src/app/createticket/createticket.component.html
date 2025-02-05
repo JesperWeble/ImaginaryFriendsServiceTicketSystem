@@ -1,10 +1,10 @@
 <form [formGroup]="ticketAddForm" (ngSubmit)="onSubmit()" [ngClass]="{'disabled': !ticketAddForm.valid}">
   <div>
-    <label for="title">Title:</label>
+    <label for="title">Problem:</label>
     <input id="title" formControlName="title" type="text" required>
   </div>
   <div>
-    <label for="description">Description:</label>
+    <label for="description">Details:</label>
     <textarea id="description" formControlName="description" required></textarea>
   </div>
   <div>

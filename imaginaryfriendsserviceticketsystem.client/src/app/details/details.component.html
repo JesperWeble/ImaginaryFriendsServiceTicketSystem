@@ -3,28 +3,25 @@
     <h2>{{ticket.title}}</h2>
   </section>
   <section class="card-content">
-    <section>
+    <section class="card-section">
       <p class="card-label">Description:</p>
-      <p>{{ticket.description}}</p>
+      <pre>{{ticket.description}}</pre>
     </section>
-    <section>
-      <p class="card-label">User Name:</p>
+    <section class="card-section">
+      <p class="card-label">User:</p>
       <p>{{user?.name}}</p>
     </section>
-    <section>
-      <p class="card-label">Customer Name:</p>
+    <section class="card-section">
+      <p class="card-label">Customer:</p>
       <p>{{customer?.fName}} {{customer?.lName}}</p>
     </section>
-    <section>
+    <section class="card-section">
       <p class="card-label">Level:</p>
       <p>{{level?.name}}</p>
     </section>
-    <section>
-      <p class="card-label">Updated At:</p>
+    <section class="card-section">
+      <p class="card-label">Updated At:</p>
       <p>{{ticket.updatedAt}}</p>
-    </section>
-    <section>
-
     </section>
   </section>
 </article>

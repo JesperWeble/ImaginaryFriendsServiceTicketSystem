@@ -16,7 +16,14 @@ export class CreateticketComponent implements OnInit, AfterViewInit {
   ticketService: TicketService = inject(TicketService);
   ticketAddForm = new FormGroup({
     title: new FormControl(''),
-    description: new FormControl(''),
+    description: new FormControl(`What is the problem?
+
+Where does the problem occur?
+
+When does the problem occur?
+
+What does the problem involve?
+`),
     customerId: new FormControl(1),
     statusId: new FormControl(1),
     levelId: new FormControl(1)
