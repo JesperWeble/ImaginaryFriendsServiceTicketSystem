@@ -3,7 +3,6 @@
   column-gap: 14px;
   row-gap: 14px;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  margin-top: 50px;
   justify-content: space-around;
   grid-auto-flow: column;
 }

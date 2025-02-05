@@ -1,0 +1,17 @@
+<form [formGroup]="ticketAddForm" (ngSubmit)="onSubmit()" [ngClass]="{'disabled': !ticketAddForm.valid}">
+  <div>
+    <label for="title">Title:</label>
+    <input id="title" formControlName="title" type="text" required>
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description" required></textarea>
+  </div>
+  <div>
+    <label for="customerId">Customer ID:</label>
+    <select id="customerId" formControlName="customerId" required>
+      <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.fName }} {{ customer.lName }}</option>
+    </select>
+  </div>
+  <button type="submit" [disabled]="!ticketAddForm.valid">Submit</button>
+</form>

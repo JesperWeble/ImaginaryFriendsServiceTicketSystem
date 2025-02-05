@@ -103,18 +103,35 @@ namespace ImaginaryFriendsServiceTicketSystem.Server.Controllers
             {
                 ticket.LevelId++;
                 _ticketContext.SaveChanges();
-                return "User added successfully";
+                return "Ticket added successfully";
             }
             return "Escalation Failed";
         }
 
         [HttpPost]
         [Route("AddTicket")]
-        public string AddTicket(Ticket ticket)
+        public ActionResult<string> AddTicket(AddTicketDto ticketDto)
         {
+            var randomUser = _ticketContext.Users.OrderBy(u => Guid.NewGuid()).FirstOrDefault();
+            if (randomUser == null)
+            {
+                return BadRequest("No users available to assign to the ticket");
+            }
+
+            var ticket = new Ticket
+            {
+                Title = ticketDto.Title,
+                Description = ticketDto.Description,
+                CustomerId = ticketDto.CustomerId,
+                StatusId = ticketDto.StatusId,
+                LevelId = ticketDto.LevelId,
+                UserId = randomUser.Id,
+                UpdatedAt = DateTime.UtcNow
+            };
+
             _ticketContext.Tickets.Add(ticket);
             _ticketContext.SaveChanges();
-            return "User added successfully";
+            return Ok("Ticket added successfully");
         }
 
         [HttpPut]
