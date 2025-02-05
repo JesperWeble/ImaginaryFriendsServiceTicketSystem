@@ -16,7 +16,4 @@ export class StatusComponent
 {
   @Input() status!: Status;
   @Input() ticketList!: Ticket[];
-
-  
-
 }
