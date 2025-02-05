@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Ticket } from './ticket';
+import { TicketDto } from './ticketdto';
 import { FullTicketInfoDto } from './fullticketinfodto';
 
 @Injectable({
@@ -25,7 +26,7 @@ export class TicketService {
     return await response.json() ?? [];
   }
 
-  async createTicket(ticket: Ticket): Promise<Ticket> {
+  async createTicket(ticket: TicketDto): Promise<any> {
     const response = await fetch(`${this.url}/AddTicket`, {
       method: 'POST',
       headers: {
@@ -33,7 +34,8 @@ export class TicketService {
       },
       body: JSON.stringify(ticket)
     });
-    return await response.json() ?? [];
+    console.log(response);
+    return await response ?? [];
   }
 
   async updateTicket(ticket: Ticket): Promise<Ticket> {
