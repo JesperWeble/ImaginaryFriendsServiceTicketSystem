@@ -4,7 +4,7 @@ form {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  background-color: #f9f9f9;
+  background-color: #133558;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -60,5 +60,5 @@ form .disabled {
 }
 
 form label {
-  color: #333;
+  color: #fff;
 }

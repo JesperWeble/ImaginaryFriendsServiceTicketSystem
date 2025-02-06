@@ -25,11 +25,11 @@
 /* Custom scrollbar styling */
 .statuses-content::-webkit-scrollbar {
   width: 10px;
-  background-color: var(--accent-color);
+  background-color: #4d4668;
 }
 
 .statuses-content::-webkit-scrollbar-thumb {
-  background-color: #000000;
+  background-color: #8183ae;
   border-radius: 10px;
 }
 
