@@ -1,4 +1,6 @@
-<section class="listing">
-  <h3 class="listing-heading">Test</h3>
-  <app-ticket *ngFor="let ticket of ticketList.filter(ticket => ticket.statusId === status.id)" [ticket] = "ticket"></app-ticket>
+<section class="statuses">
+  <h2 class="statuses-heading">{{status.name}}</h2>
+  <div class="statuses-content">
+    <app-ticket *ngFor="let ticket of ticketList" [ticket] = "ticket"></app-ticket>
+  </div>
 </section>

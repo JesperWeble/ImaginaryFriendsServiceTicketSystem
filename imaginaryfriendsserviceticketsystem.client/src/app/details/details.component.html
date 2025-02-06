@@ -1,18 +1,31 @@
-<article *ngIf="ticket; else noObjectTemplate">
-  <section>
-    <h2>{{ticket?.title}}</h2>
-    <p>{{ticket?.description}}</p>
+<article *ngIf="ticket; else noObjectTemplate" class="content">
+  <section class="card-header">
+    <h2>{{ticket.title}}</h2>
   </section>
-  <section>
-    <p>{{ticket?.userId}}</p>
-    <p>{{ticket?.customerId}}</p>
-  </section>
-  <section>
-    <h2>{{ticket?.levelId}}</h2>
-    <p>{{ticket?.updatedAt}}</p>
+  <section class="card-content">
+    <section class="card-section">
+      <p class="card-label">Description:</p>
+      <pre>{{ticket.description}}</pre>
+    </section>
+    <section class="card-section">
+      <p class="card-label">User:</p>
+      <p>{{user?.name}}</p>
+    </section>
+    <section class="card-section">
+      <p class="card-label">Customer:</p>
+      <p>{{customer?.fName}} {{customer?.lName}}</p>
+    </section>
+    <section class="card-section">
+      <p class="card-label">Level:</p>
+      <p>{{level?.name}}</p>
+    </section>
+    <section class="card-section">
+      <p class="card-label">Updated At:</p>
+      <p>{{ticket.updatedAt}}</p>
+    </section>
   </section>
 </article>
 
 <ng-template #noObjectTemplate>
-  <p>No object available.</p>
+  <p>Fetching Ticket</p>
 </ng-template>
